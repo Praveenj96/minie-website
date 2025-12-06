@@ -732,19 +732,45 @@
       <div class="price-row">
         <span class="price-main" id="priceMain">₹350</span>
         <span class="price-cut" id="priceCut">₹399</span>
-        <span class="price-off" id="priceOff">12% off</span>
       </div>
       <div class="tax-note">Inclusive of all taxes • Free delivery on prepaid orders</div>
 
       <div class="size-row">
-        <span style="font-weight:600;">Size:</span>
-        <button class="size-chip active" data-price="350" data-mrp="399">
-          50 g – Mini Tube
-        </button>
-        <button class="size-chip" data-price="500" data-mrp="549">
-          100 g – Value Jar
-        </button>
-      </div>
+  <div class="size-label">Size:</div>
+  <div class="size-options">
+    <!-- Jar 50 g -->
+    <button
+      class="size-chip active"
+      data-price="350"
+      data-mrp="399"
+      data-type="jar"
+      data-grams="50"
+    >
+      50 g – Jar
+    </button>
+
+    <!-- Jar 100 g -->
+    <button
+      class="size-chip"
+      data-price="550"
+      data-mrp="699"
+      data-type="jar"
+      data-grams="100"
+    >
+      100 g – Jar
+    </button>
+
+    <!-- Tube 100 g (only tube size) -->
+    <button
+      class="size-chip"
+      data-price="650"
+      data-mrp="799"
+      data-type="tube"
+      data-grams="100"
+    >
+      100 g – Tube
+    </button>
+  </div>
 
       <div class="key-points-title">Why minié?</div>
       <ul class="key-points">
@@ -756,7 +782,6 @@
       </ul>
 
       <div class="highlights-chip-row">
-        <span class="hl-chip">🌸 Dermatologist-approved</span>
         <span class="hl-chip">💧 Lightweight hydration</span>
         <span class="hl-chip">🌿 Clean & gentle</span>
         <span class="hl-chip">🎀 Aesthetic packaging</span>
@@ -940,21 +965,30 @@
 
   // SIZE SELECTOR & PRICE SWITCH
   const sizeChips = document.querySelectorAll(".size-chip");
-  const priceMain = document.getElementById("priceMain");
-  const priceCut = document.getElementById("priceCut");
-  const priceOff = document.getElementById("priceOff");
+const priceMain = document.getElementById("priceMain");
+const priceCut = document.getElementById("priceCut");
+const priceOff = document.getElementById("priceOff");
+const mobilePriceMain = document.getElementById("mobilePriceMain");
+const mobilePriceSub = document.getElementById("mobilePriceSub");
 
-  sizeChips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      sizeChips.forEach((c) => c.classList.remove("active"));
-      chip.classList.add("active");
-      const price = Number(chip.dataset.price);
-      const mrp = Number(chip.dataset.mrp);
-      priceMain.textContent = "₹" + price;
-      priceCut.textContent = "₹" + mrp;
-      const off = Math.round(((mrp - price) / mrp) * 100);
-      priceOff.textContent = off + "% off";
-    });
+sizeChips.forEach((chip) => {
+  chip.addEventListener("click", () => {
+    sizeChips.forEach((c) => c.classList.remove("active"));
+    chip.classList.add("active");
+
+    const price = Number(chip.dataset.price);
+    const mrp = Number(chip.dataset.mrp);
+    const label = chip.textContent.trim();
+
+    priceMain.textContent = "₹" + price;
+    priceCut.textContent = "₹" + mrp;
+    const off = Math.round(((mrp - price) / mrp) * 100);
+    priceOff.textContent = off + "% off";
+
+    if (mobilePriceMain && mobilePriceSub) {
+      mobilePriceMain.textContent = "₹" + price;
+      mobilePriceSub.textContent = label;
+    }
   });
 
   // RATING CLICK
