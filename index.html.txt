@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>minie – Soft. Simple. Beautiful.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="minie – gentle, Gen-Z friendly skincare with clean ingredients like rice water, rose water and aloe vera. Soft. Simple. Beautiful like you." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #b57bff;      /* lavender */
+      --primary-soft: #f3e9ff;
+      --accent: #ffa9c0;       /* soft pink */
+      --accent-soft: #ffe5ed;
+      --text: #1c1b2e;
+      --muted: #6b6a80;
+      --bg: #fdfbff;
+      --card: #ffffff;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --shadow-soft: 0 18px 45px rgba(31, 30, 56, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #f7f0ff 0, #fdfbff 45%, #fff9fd 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* Layout */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(253, 251, 255, 0.9), rgba(253, 251, 255, 0.6));
+      border-bottom: 1px solid rgba(181, 123, 255, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 20% 0, #ffeef7 0, #ffa9c0 32%, #b57bff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(255, 169, 192, 0.55);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      font-size: 1.15rem;
+    }
+
+    .brand-tagline-mini {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.2s ease;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(181, 123, 255, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-cta span.icon {
+      font-size: 1rem;
+      transform: translateY(1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.8rem;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(243, 233, 255, 0.9);
+      border: 1px solid rgba(181, 123, 255, 0.25);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 3vw + 1.2rem, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 26rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary {
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-ghost {
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(181, 123, 255, 0.35);
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-note span {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.4rem;
+    }
+
+    .hero-badge {
+      font-size: 0.76rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(239, 224, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--muted);
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* Hero mockup */
+
+    .hero-mock {
+      position: relative;
+      padding: 1.1rem;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #fef7ff, #ffeef7);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bubble {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(40px);
+      opacity: 0.8;
+      z-index: 0;
+    }
+
+    .hero-bubble.b1 {
+      width: 180px;
+      height: 180px;
+      background: rgba(181, 123, 255, 0.6);
+      top: -40px;
+      right: -40px;
+    }
+
+    .hero-bubble.b2 {
+      width: 140px;
+      height: 140px;
+      background: rgba(255, 169, 192, 0.7);
+      bottom: -30px;
+      left: -30px;
+    }
+
+    .product-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 1.3rem;
+      margin-top: 0.6rem;
+    }
+
+    .product-tube {
+      width: 80px;
+      height: 190px;
+      border-radius: 24px;
+      background: linear-gradient(160deg, #ffffff, #f3e9ff);
+      box-shadow: 0 14px 35px rgba(115, 87, 191, 0.26);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.7rem 0.6rem;
+    }
+
+    .product-tube:nth-child(2) {
+      transform: translateY(10px) scale(1.05);
+      background: linear-gradient(160deg, #ffffff, #ffe5ed);
+      box-shadow: 0 18px 45px rgba(190, 81, 132, 0.25);
+    }
+
+    .tube-cap {
+      height: 26px;
+      border-radius: 18px 18px 12px 12px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), transparent);
+      opacity: 0.4;
+    }
+
+    .tube-label {
+      flex: 1;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.55rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.6rem;
+      text-align: center;
+    }
+
+    .tube-brand {
+      font-weight: 700;
+      text-transform: lowercase;
+      letter-spacing: 0.06em;
+      font-size: 0.62rem;
+    }
+
+    .tube-tag {
+      font-size: 0.54rem;
+      color: var(--muted);
+    }
+
+    .tube-shade {
+      height: 22px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f8c3ff, #ffa9c0);
+      margin-top: 0.3rem;
+    }
+
+    .tube-foot {
+      height: 18px;
+      border-radius: 8px;
+      background: #e2d4ff;
+    }
+
+    .hero-tag-card {
+      position: absolute;
+      left: -4px;
+      top: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.72rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 12px 25px rgba(165, 121, 236, 0.3);
+    }
+
+    .tag-pill-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .hero-mini-card {
+      position: absolute;
+      right: -6px;
+      bottom: 14px;
+      background: rgba(24, 20, 50, 0.96);
+      color: #fff;
+      font-size: 0.68rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      max-width: 170px;
+      box-shadow: 0 16px 40px rgba(18, 12, 52, 0.8);
+    }
+
+    .hero-mini-card strong {
+      font-size: 0.7rem;
+    }
+
+    .mini-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .mini-point {
+      padding: 0.2rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.62rem;
+    }
+
+    /* Section generic */
+
+    section {
+      padding: 3.2rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.2rem;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 28rem;
+      margin: 0.2rem auto 0;
+    }
+
+    /* Benefits */
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .benefit-card {
+      border-radius: var(--radius-md);
+      background: var(--card);
+      padding: 1.2rem;
+      box-shadow: 0 12px 35px rgba(32, 23, 73, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .benefit-title {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .benefit-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .benefit-glow {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(181, 123, 255, 0.18), transparent 70%);
+      bottom: -70px;
+      right: -40px;
+      pointer-events: none;
+    }
+
+    /* Ingredients */
+
+    .ingredients-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .ingredient-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    .ingredient-pill {
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(181, 123, 255, 0.16);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 10px 26px rgba(23, 10, 53, 0.08);
+    }
+
+    .ingredient-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .ingredient-dot.pink {
+      background: var(--accent);
+    }
+
+    .ingredient-dot.purple {
+      background: var(--primary);
+    }
+
+    .ingredient-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+    }
+
+    .ingredients-card {
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      background: radial-gradient(circle at top, #f3e9ff 0, #ffe5ed 40%, #ffffff 100%);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ingredients-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(24, 20, 50, 0.06);
+      display: inline-block;
+      margin-bottom: 0.7rem;
+    }
+
+    .ingredients-main {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .usage-list {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .usage-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Products section */
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .product-card {
+      border-radius: var(--radius-md);
+      background: var(--card);
+      box-shadow: 0 12px 32px rgba(32, 23, 73, 0.08);
+      padding: 1.1rem 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 0.8rem;
+      right: 0.9rem;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .product-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .product-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .product-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .product-meta span {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .product-footer {
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .product-price {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .product-btn {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 500;
+      box-shadow: 0 10px 26px rgba(132, 92, 221, 0.4);
+    }
+
+    /* Testimonials */
+
+    .testimonials {
+      background: radial-gradient(circle at top, #f3e9ff 0, #fdfbff 45%, #fff);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .testimonial-card {
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 14px 30px rgba(48, 38, 96, 0.08);
+      font-size: 0.82rem;
+      color: var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      top: -15px;
+      left: 12px;
+      font-size: 3rem;
+      color: rgba(239, 224, 255, 0.7);
+      font-weight: 700;
+    }
+
+    .testimonial-user {
+      margin-top: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .testimonial-tag {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .stars {
+      font-size: 0.78rem;
+    }
+
+    /* FAQ & Contact */
+
+    .faq-contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+    }
+
+    .faq-item + .faq-item {
+      margin-top: 1rem;
+    }
+
+    .faq-q {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.6rem;
+      background: #ffffff;
+      box-shadow: 0 16px 40px rgba(32, 23, 73, 0.12);
+    }
+
+    .contact-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .field label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 999px;
+      border: 1px solid rgba(181, 123, 255, 0.18);
+      padding: 0.55rem 0.9rem;
+      font-size: 0.82rem;
+      outline: none;
+      font-family: inherit;
+      background: #faf5ff;
+    }
+
+    .field textarea {
+      border-radius: 18px;
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .contact-submit {
+      margin-top: 0.4rem;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(132, 92, 221, 0.5);
+    }
+
+    .contact-meta {
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .contact-meta strong {
+      color: var(--text);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(181, 123, 255, 0.1);
+      padding: 1.3rem 0 1.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: #fdfbff;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .ingredients-wrap,
+      .faq-contact {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .hero-mock {
+        order: -1;
+      }
+
+      .benefit-grid,
+      .products-grid,
+      .testimonial-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: fixed;
+        top: 52px;
+        right: 0;
+        left: 0;
+        background: rgba(253, 251, 255, 0.98);
+        flex-direction: column;
+        padding: 0.9rem 1.5rem 1.2rem;
+        border-bottom: 1px solid rgba(181, 123, 255, 0.1);
+        transform: translateY(-150%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hero-grid {
+        gap: 2rem;
+      }
+
+      .section-header {
+        text-align: left;
+      }
+
+      .section-subtitle {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .benefit-grid,
+      .products-grid,
+      .testimonial-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a href="#top" class="brand">
+          <div class="brand-mark">m</div>
+          <div class="brand-text">
+            <div class="brand-name">minie</div>
+            <div class="brand-tagline-mini">Soft. Simple. Beautiful.</div>
+          </div>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#ingredients">Ingredients</a>
+          <a href="#products">Products</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+          <button class="nav-cta" onclick="scrollToId('products')">
+            Shop minie
+            <span class="icon">➜</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Gen-Z friendly • Made in India
+            </div>
+            <h1 class="hero-title">
+              Skincare that feels like
+              <span class="highlight">you</span>, not a filter.
+            </h1>
+            <p class="hero-subtitle">
+              Meet <strong>minie</strong> – gentle, everyday face cream powered by
+              rice water, rose water and aloe vera. No drama, no 10-step routine.
+              Just soft, simple, beautiful skin.
+            </p>
+
+            <div class="hero-cta-row">
+              <button class="btn-primary" onclick="scrollToId('products')">
+                Explore products
+                <span>✨</span>
+              </button>
+              <button class="btn-ghost" onclick="scrollToId('ingredients')">
+                See full ingredients
+              </button>
+            </div>
+
+            <p class="hero-note">
+              <span>minie</span> is crafted for normal to combination skin (ages 17–35).
+            </p>
+
+            <div class="hero-badges">
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Dermatologically tested
+              </div>
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Paraben & sulfate free
+              </div>
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Not tested on animals
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-mock" aria-hidden="true">
+            <div class="hero-card">
+              <div class="hero-bubble b1"></div>
+              <div class="hero-bubble b2"></div>
+
+              <div class="hero-tag-card">
+                <span class="tag-pill-dot"></span>
+                24-hr hydration with a non-sticky finish
+              </div>
+
+              <div class="product-row">
+                <div class="product-tube">
+                  <div class="tube-cap"></div>
+                  <div class="tube-label">
+                    <div class="tube-brand">minie</div>
+                    <div class="tube-tag">Daily Glow Cream</div>
+                    <div class="tube-shade"></div>
+                  </div>
+                  <div class="tube-foot"></div>
+                </div>
+
+                <div class="product-tube">
+                  <div class="tube-cap"></div>
+                  <div class="tube-label">
+                    <div class="tube-brand">minie</div>
+                    <div class="tube-tag">Oil-Free Hydration</div>
+                    <div class="tube-shade"></div>
+                  </div>
+                  <div class="tube-foot"></div>
+                </div>
+
+                <div class="product-tube">
+                  <div class="tube-cap"></div>
+                  <div class="tube-label">
+                    <div class="tube-brand">minie</div>
+                    <div class="tube-tag">Night Repair Cream</div>
+                    <div class="tube-shade"></div>
+                  </div>
+                  <div class="tube-foot"></div>
+                </div>
+              </div>
+
+              <div class="hero-mini-card">
+                <strong>Ingredients you can read out loud.</strong>
+                <div class="mini-points">
+                  <span class="mini-point">Rice water</span>
+                  <span class="mini-point">Rose water</span>
+                  <span class="mini-point">Aloe vera</span>
+                  <span class="mini-point">Vitamin&nbsp;E</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="eyebrow">about minie</div>
+            <h2 class="section-title">Soft. Simple. Beautiful like you.</h2>
+            <p class="section-subtitle">
+              We built minie for girls who want real skin, not unrealistic routines.
+              One cream that fits into your busy life, slides under makeup,
+              and still feels like bare skin.
+            </p>
+          </div>
+
+          <div class="benefit-grid">
+            <article class="benefit-card">
+              <div class="benefit-chip">
+                ✨ Daily Glow
+              </div>
+              <h3 class="benefit-title">Lightweight, non-greasy texture</h3>
+              <p class="benefit-text">
+                Absorbs in seconds and leaves a soft, hydrated finish.
+                No white cast, no heaviness, no “chip-chip” feeling.
+              </p>
+              <div class="benefit-glow"></div>
+            </article>
+
+            <article class="benefit-card">
+              <div class="benefit-chip">
+                💧 Deep Hydration
+              </div>
+              <h3 class="benefit-title">Hydrates up to 24 hours</h3>
+              <p class="benefit-text">
+                Rice water, rose water and aloe vera lock in moisture so your skin
+                stays bouncy, not oily – all day long.
+              </p>
+              <div class="benefit-glow"></div>
+            </article>
+
+            <article class="benefit-card">
+              <div class="benefit-chip">
+                🌸 Clean & Kind
+              </div>
+              <h3 class="benefit-title">Made for Indian skin & climate</h3>
+              <p class="benefit-text">
+                Formulated and made in India, with ingredients that love your skin
+                in both humid summers and dry AC winters.
+              </p>
+              <div class="benefit-glow"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ingredients -->
+      <section id="ingredients">
+        <div class="container ingredients-wrap">
+          <div>
+            <div class="section-header" style="text-align:left; margin-bottom:1.3rem;">
+              <div class="eyebrow">inside minie</div>
+              <h2 class="section-title">Clean ingredients. Clear conscience.</h2>
+              <p class="section-subtitle">
+                We keep it simple and effective – no confusing jargon,
+                no harsh chemicals just to sound fancy.
+              </p>
+            </div>
+
+            <div class="ingredient-list">
+              <div class="ingredient-pill">
+                <span class="ingredient-dot purple"></span>
+                Water &amp; rice water extract
+              </div>
+              <div class="ingredient-pill">
+                <span class="ingredient-dot pink"></span>
+                Rose water
+              </div>
+              <div class="ingredient-pill">
+                <span class="ingredient-dot pink"></span>
+                Aloe vera
+              </div>
+              <div class="ingredient-pill">
+                <span class="ingredient-dot purple"></span>
+                Tocopheryl Acetate (Vitamin&nbsp;E)
+              </div>
+              <div class="ingredient-pill">
+                <span class="ingredient-dot purple"></span>
+                Glycerin for moisture
+              </div>
+              <div class="ingredient-pill">
+                <span class="ingredient-dot pink"></span>
+                Skin-friendly emollients
+              </div>
+            </div>
+
+            <p class="ingredient-note">
+              <strong>No parabens, no sulfates, no mineral oil.</strong><br />
+              Formulated for normal to combination skin. Patch test recommended
+              for sensitive skin.
+            </p>
+          </div>
+
+          <aside class="ingredients-card">
+            <div class="ingredients-badge">
+              made in india • jain group, indore
+            </div>
+            <div class="ingredients-main">
+              Every tube of <span class="highlight">minie</span> is crafted with care.
+            </div>
+            <p style="font-size:0.85rem; color:var(--muted); margin-top:0.3rem;">
+              Mfg: Jain Group, 563/17 Meghdoot Nagar, Indore, India<br />
+              Mfg Date: Jan 2026 • Best before 12 months from MFD
+            </p>
+
+            <ul class="usage-list">
+              <li>Apply on cleansed face, morning and evening.</li>
+              <li>Use alone or under sunscreen and makeup.</li>
+              <li>Store in a cool, dry place away from direct sunlight.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section id="products">
+        <div class="container">
+          <div class="section-header">
+            <div class="eyebrow">the minie lineup</div>
+            <h2 class="section-title">Pick your kind of glow.</h2>
+            <p class="section-subtitle">
+              One simple routine, three easy choices. Start with any one –
+              or mix and match for day &amp; night.
+            </p>
+          </div>
+
+          <div class="products-grid">
+            <article class="product-card">
+              <span class="product-tag">Bestseller</span>
+              <h3 class="product-name">minie Daily Glow Cream</h3>
+              <p class="product-sub">
+                Lightweight cream with rice water &amp; rose water for daily glow
+                and soft, plump skin.
+              </p>
+              <p class="product-meta">
+                For: <span>Normal to combination skin</span><br />
+                Use: <span>AM &amp; PM</span>
+              </p>
+              <div class="product-footer">
+                <div class="product-price">₹XXX / 50g</div>
+                <button class="product-btn" onclick="alert('Link pending – add your store URL here!')">
+                  Add store link
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <span class="product-tag">Oil-Free</span>
+              <h3 class="product-name">minie Cloud Hydration Gel</h3>
+              <p class="product-sub">
+                Ultra-light gel cream for humid days and under-mask comfort,
+                zero stickiness.
+              </p>
+              <p class="product-meta">
+                For: <span>Oily / humid weather</span><br />
+                Use: <span>Daytime</span>
+              </p>
+              <div class="product-footer">
+                <div class="product-price">₹XXX / 50g</div>
+                <button class="product-btn" onclick="alert('Link pending – add your store URL here!')">
+                  Add store link
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <span class="product-tag">Night Care</span>
+              <h3 class="product-name">minie Night Repair Cream</h3>
+              <p class="product-sub">
+                Nourishing night cream with vitamin&nbsp;E to help tired skin
+                wake up smoother and calmer.
+              </p>
+              <p class="product-meta">
+                For: <span>Dry &amp; stressed skin</span><br />
+                Use: <span>PM</span>
+              </p>
+              <div class="product-footer">
+                <div class="product-price">₹XXX / 50g</div>
+                <button class="product-btn" onclick="alert('Link pending – add your store URL here!')">
+                  Add store link
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <div class="eyebrow">what our girls say</div>
+            <h2 class="section-title">Real skin, real stories.</h2>
+            <p class="section-subtitle">
+              Early users fell in love with how minie feels on their skin.
+              No filters, just feedback.
+            </p>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              I wanted something that works in Indore heat without feeling heavy.
+              minie actually sinks in and my face doesn’t look oily by afternoon.
+              <div class="testimonial-user">
+                <div>
+                  <div class="testimonial-name">Aarohi, 23</div>
+                  <div class="testimonial-tag">College student</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              I use it under sunscreen and makeup. No pilling, no patchiness –
+              just a smooth base. Finally not 5 different products every morning.
+              <div class="testimonial-user">
+                <div>
+                  <div class="testimonial-name">Mansi, 27</div>
+                  <div class="testimonial-tag">Working professional</div>
+                </div>
+                <div class="stars">★★★★☆</div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              My skin is a bit sensitive, so I like that the ingredient list is
+              simple. I’ve almost finished my first tube and already ordered the next.
+              <div class="testimonial-user">
+                <div>
+                  <div class="testimonial-name">Simran, 25</div>
+                  <div class="testimonial-tag">Creator</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ & Contact -->
+      <section id="faq">
+        <div class="container faq-contact">
+          <div>
+            <div class="section-header" style="text-align:left; margin-bottom:1.4rem;">
+              <div class="eyebrow">faq</div>
+              <h2 class="section-title">You ask, minie answers.</h2>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Is minie suitable for acne-prone skin?</div>
+              <div class="faq-a">
+                minie is designed for normal to combination skin and is non-greasy.
+                If your skin is very acne-prone or sensitive, we recommend a patch
+                test on a small area near the jawline before full use.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Can I use minie under sunscreen and makeup?</div>
+              <div class="faq-a">
+                Yes. Apply minie on clean skin, let it absorb for 2–3 minutes,
+                then follow with sunscreen and makeup as usual.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Is minie cruelty-free?</div>
+              <div class="faq-a">
+                We do not test on animals. minie is proudly made in India with
+                a no-animal-testing policy.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">How long does one tube last?</div>
+              <div class="faq-a">
+                With twice-daily use, one 50g tube should typically last 4–6 weeks
+                depending on how much you apply each time.
+              </div>
+            </div>
+          </div>
+
+          <aside id="contact" class="contact-card">
+            <h3>Let's talk about your skin.</h3>
+            <p>
+              Have questions, want to stock minie, or need help with your order?
+              Drop your details and we’ll get back to you.
+            </p>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email / Phone</label>
+                <input id="email" name="email" placeholder="How can we reach you?" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Ask us anything about minie..." required></textarea>
+              </div>
+
+              <button type="submit" class="contact-submit">
+                Send message
+              </button>
+            </form>
+
+            <div class="contact-meta">
+              Or email us at <strong>hello@minieskin.com</strong>
+              (update this with your real email).
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span>©</span> <span>minie</span>
+          <span>·</span>
+          <span>Soft. Simple. Beautiful like you.</span>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#products">Shop</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile nav
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Smooth scroll helper
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+
+    // Close nav on link click (mobile)
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // Fake contact form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Form submitted! Connect this form to your email or backend when you are ready.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
