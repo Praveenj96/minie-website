@@ -2,1050 +2,748 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>minié Mini Cream – Soft. Simple. Beautiful.</title>
+  <title>minié – Mini Cream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="minié Mini Cream – a lightweight daily face cream for soft, glowing skin. Hydration boost, brightens dull skin, soft-matte finish." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <style>
     :root {
-      --primary: #ff4ca8;
-      --primary-dark: #e13890;
-      --accent: #b57bff;
-      --bg: #f5f7ff;
-      --card: #ffffff;
-      --text: #1c1c2b;
-      --muted: #6b6b80;
-      --border: #e3e3f0;
-      --success: #1aa34a;
-      --rating-gold: #ffa726;
+      --pink-bg: #fddde6;
+      --pink-main: #f8c2ce;
+      --pink-deep: #d66a7b;
+      --cream: #fff4eb;
+      --text-main: #5c2b32;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.08);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
     }
 
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f2f3f7;
-      color: var(--text);
+      background: linear-gradient(180deg,#ffeef4,#ffe4ef);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    /* HEADER / NAV LIKE FLIPKART */
-
-    header {
-      background: #ffffff;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0.7rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .nav-logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .nav-logo-text span:first-child {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-
-    .nav-logo-text span:last-child {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .nav-search {
-      flex: 1;
-    }
-
-    .nav-search input {
-      width: 100%;
-      padding: 0.6rem 0.8rem;
-      border-radius: 6px;
-      border: 1px solid #e0e0f2;
-      font-size: 0.9rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      font-size: 0.85rem;
-    }
-
-    .nav-pill {
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      background: #fff0f6;
-      border: 1px solid #ffd7eb;
-      font-size: 0.75rem;
-      color: var(--primary-dark);
-      font-weight: 500;
-    }
-
-    /* LAYOUT */
 
     .page {
-      max-width: 1200px;
-      margin: 1rem auto 2.5rem;
-      padding: 0 1rem;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
     }
 
-    .breadcrumb {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 6px 26px;
     }
 
-    .breadcrumb span + span::before {
-      content: "›";
-      margin: 0 0.25rem;
-      color: #b0b0c5;
-    }
-
-    .product-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
-      gap: 1.8rem;
-      align-items: flex-start;
-    }
-
-    /* LEFT: GALLERY */
-
-    .gallery-card {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    .brand {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-    }
-
-    .gallery-main {
-      border-radius: 10px;
-      background: #fef5f9;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 280px;
-    }
-
-    .gallery-main img {
-      max-height: 260px;   /* smaller image */
-      object-fit: contain;
-    }
-
-    .gallery-thumbs {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .gallery-thumb {
-      width: 70px;
-      height: 70px;
-      border-radius: 6px;
-      border: 2px solid transparent;
-      overflow: hidden;
-      cursor: pointer;
-      background: #fff7fb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .gallery-thumb img {
-      max-height: 62px;
-      object-fit: contain;
-    }
-
-    .gallery-thumb.active {
-      border-color: var(--primary);
-    }
-
-    .gallery-actions {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .btn-buy,
-    .btn-cart {
-      flex: 1;
-      padding: 0.75rem 0.9rem;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .btn-buy {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(255, 76, 168, 0.35);
-    }
-
-    .btn-cart {
-      background: #fff;
-      border: 1px solid var(--primary);
-      color: var(--primary-dark);
-    }
-
-    /* RIGHT: DETAILS */
-
-    .details-card {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 1.2rem 1.3rem 1.5rem;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    }
-
-    .product-title-main {
-      font-size: 1.3rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .product-subtitle {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .rating-row {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-bottom: 0.7rem;
-      font-size: 0.8rem;
-    }
-
-    .rating-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2rem;
-      padding: 0.1rem 0.45rem;
-      border-radius: 4px;
-      background: #1aab4a;
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .rating-stars {
-      display: inline-flex;
       gap: 2px;
-      cursor: pointer;
     }
 
-    .rating-stars span {
-      font-size: 1rem;
-      color: #cbd5f5;
-      transition: color 0.15s;
-    }
-
-    .rating-stars span.active {
-      color: var(--rating-gold);
-    }
-
-    .rating-count {
-      color: var(--muted);
-    }
-
-    .price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
-      margin: 0.8rem 0 0.4rem;
-    }
-
-    .price-main {
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .price-cut {
-      font-size: 0.9rem;
-      text-decoration: line-through;
-      color: #9b9bb0;
-    }
-
-    .price-off {
-      font-size: 0.83rem;
-      color: var(--success);
-      font-weight: 600;
-    }
-
-    .tax-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .size-row {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.8rem;
-      font-size: 0.85rem;
-    }
-
-    .size-chip {
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      font-size: 0.8rem;
-      background: #fff;
-    }
-
-    .size-chip.active {
-      border-color: var(--primary);
-      color: var(--primary-dark);
-      background: #fff0f6;
-      font-weight: 600;
-    }
-
-    .key-points-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .key-points {
-      list-style: none;
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .key-points li::before {
-      content: "•";
-      color: var(--primary);
-      margin-right: 0.35rem;
-    }
-
-    .highlights-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 0.4rem 0 0.7rem;
-    }
-
-    .hl-chip {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      background: #f3f0ff;
-      color: #5d4bbd;
-    }
-
-    .safe-list {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .safe-list strong {
-      color: var(--text);
-    }
-
-    /* DETAIL TABS SECTION */
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      gap: 1.2rem;
-      margin-top: 1.5rem;
-    }
-
-    .info-card {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 1.1rem 1.2rem;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
-    }
-
-    .info-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .info-card p,
-    .info-card li {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .info-card ul {
-      padding-left: 1rem;
-      margin-top: 0.3rem;
-    }
-
-    .info-card li + li {
-      margin-top: 0.2rem;
-    }
-
-    .ingredients-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-    }
-
-    .ingredient-pill {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 999px;
-      background: #fef2ff;
-      border: 1px solid #f6d7ff;
-    }
-
-    /* REVIEWS */
-
-    .reviews-card {
-      margin-top: 1.5rem;
-      background: var(--card);
-      border-radius: 8px;
-      padding: 1.1rem 1.2rem 1.4rem;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
-    }
-
-    .reviews-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
-    }
-
-    .reviews-header h3 {
-      font-size: 1rem;
-    }
-
-    .review-pill {
-      font-size: 0.8rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: #e5fbec;
-      color: var(--success);
-    }
-
-    .fake-review {
-      font-size: 0.84rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 0.75rem;
-      margin-top: 0.5rem;
-    }
-
-    .fake-review strong {
-      color: var(--text);
-    }
-
-    /* CONTACT / BRAND STORY FOOTER SECTION */
-
-    .brand-card {
-      margin-top: 1.8rem;
-      background: var(--card);
-      border-radius: 8px;
-      padding: 1.2rem 1.4rem;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    }
-
-    .brand-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
+    .brand-name {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--text-main);
     }
 
     .brand-tagline {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
+      font-size: 13px;
+      opacity: 0.8;
     }
 
-    .brand-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 0.4rem 0 0.8rem;
-      font-size: 0.8rem;
+    nav a {
+      font-size: 13px;
+      margin-left: 16px;
+      text-decoration: none;
+      color: var(--text-main);
+      opacity: 0.8;
     }
 
-    .brand-badge {
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: #f3f0ff;
-      color: #5143b5;
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
     }
 
-    .contact-grid {
+    /* Hero / main product */
+    .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.2rem;
-      margin-top: 1.2rem;
+      gap: 28px;
+      align-items: center;
+      background: var(--pink-main);
+      border-radius: 28px;
+      box-shadow: var(--shadow-soft);
+      padding: 28px 24px;
     }
 
-    .contact-card {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 1.1rem 1.2rem 1.4rem;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
 
-    .contact-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
+    .hero-left h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
     }
 
-    .contact-card p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
+    .hero-left h2 {
+      font-size: 16px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-bottom: 8px;
     }
 
-    .contact-form {
-      display: grid;
-      gap: 0.7rem;
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 16px;
     }
 
-    .field {
+    .badge {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .hero-left p {
+      font-size: 13px;
+      max-width: 460px;
+    }
+
+    .hero-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
+    }
+
+    .btn-primary {
+      background: var(--text-main);
+      color: #ffeef3;
+      box-shadow: 0 10px 24px rgba(92, 43, 50, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(92, 43, 50, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(92, 43, 50, 0.4);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.7);
+    }
+
+    .hero-price {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .hero-price span {
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-left: 4px;
+    }
+
+    .hero-right {
+      background: rgba(255,255,255,0.7);
+      border-radius: 24px;
+      padding: 16px 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 12px;
     }
 
-    .field label {
-      font-size: 0.8rem;
-      color: var(--muted);
+    .product-image-wrapper {
+      background: var(--pink-bg);
+      border-radius: 20px;
+      padding: 16px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .field input,
-    .field textarea {
-      border-radius: 6px;
-      border: 1px solid #dddff0;
-      padding: 0.55rem 0.75rem;
-      font-size: 0.84rem;
-      outline: none;
-      font-family: inherit;
-      background: #fafbff;
+    .product-image-wrapper img {
+      max-width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      display: block;
     }
 
-    .field textarea {
-      min-height: 80px;
-      resize: vertical;
+    .variant-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+      gap: 6px;
+      margin-top: 4px;
     }
 
-    .contact-submit {
-      margin-top: 0.2rem;
-      padding: 0.65rem 0.9rem;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      font-size: 0.88rem;
-      font-weight: 600;
+    .variant-option {
+      border-radius: 14px;
+      background: #fff7f9;
+      border: 1px solid transparent;
+      padding: 8px 8px 9px;
+      font-size: 12px;
+      line-height: 1.4;
       cursor: pointer;
-      box-shadow: 0 10px 24px rgba(255, 76, 168, 0.35);
+      text-align: left;
     }
 
-    .contact-meta {
-      margin-top: 0.7rem;
-      font-size: 0.8rem;
-      color: var(--muted);
+    .variant-option strong {
+      display: block;
+      font-size: 13px;
     }
 
-    .contact-meta strong {
-      color: var(--text);
+    .variant-option small {
+      display: block;
+      opacity: 0.8;
+    }
+
+    .variant-option.active {
+      border-color: var(--text-main);
+      background: #ffeef4;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.07);
+    }
+
+    .detail-line {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .detail-line span {
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 40px;
+    }
+
+    section h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 880px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .story {
+      background: #ffeef6;
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    .story ul {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+
+    .story li {
+      margin-bottom: 4px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(92,43,50,0.2);
+      background: #fff7fb;
+    }
+
+    .benefits-card {
+      background: #fff7fb;
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 12px;
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+    }
+
+    .benefits-card ul {
+      margin-top: 6px;
+      padding-left: 18px;
+    }
+
+    .benefits-card li {
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section-note {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    .ingredients-card, .manufacturing-card {
+      background: #fff7fb;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      font-size: 13px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .ingredients-card ul {
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    .manufacturing-card p + p {
+      margin-top: 4px;
+    }
+
+    /* Cart area */
+    .cart-section {
+      background: var(--cream);
+      border-radius: 22px;
+      padding: 16px 16px 12px;
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+    }
+
+    .cart-items {
+      margin: 8px 0 10px;
+      border-top: 1px dashed rgba(92,43,50,0.25);
+      border-bottom: 1px dashed rgba(92,43,50,0.25);
+      padding: 8px 0;
+      max-height: 160px;
+      overflow-y: auto;
+    }
+
+    .cart-item-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .cart-item-row span {
+      font-size: 12px;
+    }
+
+    .cart-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .input-qty {
+      width: 60px;
+      padding: 6px 8px;
+      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(92,43,50,0.35);
+      background: rgba(255,255,255,0.8);
     }
 
     footer {
-      margin-top: 2.5rem;
-      padding: 1rem 0 1.4rem;
-      border-top: 1px solid #dde0f0;
-      font-size: 0.78rem;
-      color: var(--muted);
+      margin-top: 40px;
+      font-size: 11px;
       text-align: center;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .product-layout,
-      .info-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .nav-search {
-        display: none;
-      }
-
-      .page {
-        margin-top: 0.6rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .details-card {
-        padding: 1rem;
-      }
-
-      .gallery-card {
-        padding: 0.8rem;
-      }
-
-      .gallery-main {
-        min-height: 220px;
-      }
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
+<div class="page">
 
-<header>
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo">
-      <div class="nav-logo-mark">m</div>
-      <div class="nav-logo-text">
-        <span>minié</span>
-        <span>Soft. Simple. Beautiful.</span>
-      </div>
-    </a>
-    <div class="nav-search">
-      <input placeholder="Search in minié (but we only have one bestselling cream 😉)" />
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-name">minié</div>
+      <div class="brand-tagline">Soft. Simple. Beautiful like you.</div>
     </div>
-    <nav class="nav-links">
-      <a href="#details">Details</a>
+    <nav>
+      <a href="#product">Product</a>
+      <a href="#story">Brand Story</a>
       <a href="#ingredients">Ingredients</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Help</a>
-      <div class="nav-pill">100% Genuine • India</div>
+      <a href="#manufacturing">Manufacturing</a>
+      <a href="#cod">COD Order</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main id="top" class="page">
-  <div class="breadcrumb">
-    <span>Home</span><span>Face Cream</span><span>minié Mini Cream</span>
-  </div>
+  <!-- Hero / Product -->
+  <main id="product" class="hero">
+    <div class="hero-left">
+      <h1>Mini Cream</h1>
+      <h2>Daily face cream for soft, glowing skin.</h2>
 
-  <!-- MAIN PRODUCT LAYOUT -->
-  <section class="product-layout" id="details">
-    <!-- LEFT: GALLERY + BUTTONS -->
-    <aside class="gallery-card">
-      <div class="gallery-main" id="mainImageWrap">
-        <img id="mainImage" src="minie-jar.jpg" alt="minié Mini Cream Jar" />
+      <div class="hero-badges">
+        <span class="badge">Hydrates</span>
+        <span class="badge">Brightens</span>
+        <span class="badge">Soft-matte finish</span>
+        <span class="badge">Dermatologist-approved</span>
+        <span class="badge">Clean & gentle</span>
       </div>
 
-      <div class="gallery-thumbs">
-        <div class="gallery-thumb active" data-img="minie-jar.jpg">
-          <img src="minie-jar.jpg" alt="minié jar" />
-        </div>
-        <div class="gallery-thumb" data-img="minie-tube.jpg">
-          <img src="minie-tube.jpg" alt="minié tube" />
-        </div>
-      </div>
-
-      <div class="gallery-actions">
-        <button
-          class="btn-buy"
-          onclick="buyOnWhatsapp()">
-          Buy now on WhatsApp
-        </button>
-        <button
-          class="btn-cart"
-          onclick="fakeAddToCart()">
-          Add to Cart
-        </button>
-      </div>
-    </aside>
-
-    <!-- RIGHT: DETAILS -->
-    <article class="details-card">
-      <h1 class="product-title-main">minié Mini Cream – Daily Glow Face Cream</h1>
-      <p class="product-subtitle">
-        Lightweight, soft-matte face cream that melts into your skin for
-        all-day hydration and glow. Perfect for normal to combination skin.
+      <p>
+        A lightweight cream that melts into your skin for instant glow & softness. 
+        Created for the girl who loves simplicity but wants real results.
       </p>
 
-      <div class="rating-row">
-        <div class="rating-pill">
-          <span id="ratingScore">4.8</span>★
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="btn-add-main">
+          Add to cart
+        </button>
+        <button class="btn btn-outline" onclick="document.getElementById('pdp').scrollIntoView({behavior:'smooth'})">
+          View full details
+        </button>
+        <div class="hero-price" id="hero-price">
+          ₹349 <span>Jar • 50 g</span>
         </div>
-        <div class="rating-stars" id="ratingStars" aria-label="Tap to rate">
-          <span data-star="1">★</span>
-          <span data-star="2">★</span>
-          <span data-star="3">★</span>
-          <span data-star="4">★</span>
-          <span data-star="5">★</span>
-        </div>
-        <span class="rating-count" id="ratingCount">(1,234 ratings)</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="subtitle">Select your pack</div>
+      <div class="product-image-wrapper">
+        <!-- Update image paths with your actual images -->
+        <img id="variant-image" src="images/minie-jar-50.png" alt="minié Mini Cream Jar" />
       </div>
 
-      <div class="price-row">
-        <span class="price-main" id="priceMain">₹350</span>
-        <span class="price-cut" id="priceCut">₹399</span>
-      </div>
-      <div class="tax-note">Inclusive of all taxes • Free delivery on prepaid orders</div>
-
-      <div class="size-row">
-  <div class="size-label">Size:</div>
-  <div class="size-options">
-    <!-- Jar 50 g -->
-    <button
-      class="size-chip active"
-      data-price="350"
-      data-mrp="399"
-      data-type="jar"
-      data-grams="50"
-    >
-      50 g – Jar
-    </button>
-
-    <!-- Jar 100 g -->
-    <button
-      class="size-chip"
-      data-price="550"
-      data-mrp="699"
-      data-type="jar"
-      data-grams="100"
-    >
-      100 g – Jar
-    </button>
-
-    <!-- Tube 100 g (only tube size) -->
-    <button
-      class="size-chip"
-      data-price="650"
-      data-mrp="799"
-      data-type="tube"
-      data-grams="100"
-    >
-      100 g – Tube
-    </button>
-  </div>
-
-      <div class="key-points-title">Why minié?</div>
-      <ul class="key-points">
-        <li>Hydration boost that keeps skin comfortable all day.</li>
-        <li>Brightens dull skin and adds a soft, healthy glow.</li>
-        <li>Soft-matte finish – no heavy, sticky, “chip-chip” feeling.</li>
-        <li>Dermatologist-approved, gentle and non-irritating.</li>
-        <li>Aesthetic pastel packaging Gen-Z actually loves to keep on the shelf.</li>
-      </ul>
-
-      <div class="highlights-chip-row">
-        <span class="hl-chip">💧 Lightweight hydration</span>
-        <span class="hl-chip">🌿 Clean & gentle</span>
-        <span class="hl-chip">🎀 Aesthetic packaging</span>
+      <div class="variant-selector">
+        <button class="variant-option active" data-id="jar-50">
+          <strong>Jar • 50 g</strong>
+          <small>₹349 – starter glow</small>
+        </button>
+        <button class="variant-option" data-id="jar-100">
+          <strong>Jar • 100 g</strong>
+          <small>₹549 – more for daily use</small>
+        </button>
+        <button class="variant-option" data-id="tube-100">
+          <strong>Tube • 100 g</strong>
+          <small>₹599 – travel-friendly</small>
+        </button>
       </div>
 
-      <p class="safe-list">
-        <strong>Skin type:</strong> Normal to combination (suitable for most skin, patch test for sensitive).<br>
-        <strong>Free from:</strong> Parabens, sulfates, mineral oil, harsh alcohols.
+      <p class="detail-line">
+        MRP: <span id="variant-price">₹349</span> (incl. of all taxes)
       </p>
-    </article>
+      <p class="detail-line">
+        Pack type: <span id="variant-pack">Jar</span> • Net quantity: <span id="variant-size">50 g</span>
+      </p>
+    </div>
+  </main>
+
+  <!-- PDP-style detailed section -->
+  <section id="pdp">
+    <h3>Product Description</h3>
+    <div class="two-col">
+      <div class="benefits-card">
+        <div class="subtitle">Why minié?</div>
+        <p><strong>Mini Cream — 50 g (Bestseller)</strong></p>
+        <ul>
+          <li>✔ Hydration boost</li>
+          <li>✔ Brightens dull, tired skin</li>
+          <li>✔ Soft-matte, non-greasy finish</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>Feels like:</strong> lightweight, cloud-soft cream that sinks in fast.</p>
+        <p><strong>Looks like:</strong> a soft pastel jar/tube that feels as pretty as it works.</p>
+        <p style="margin-top:8px;"><strong>Perfect for:</strong> Gen-Z & young women (17–35) who love minimal routines with maximum glow.</p>
+
+        <div class="section-note">
+          💧 Lightweight hydration • 🌿 Clean & gentle ingredients • 🎀 Aesthetic packaging Gen-Z loves
+        </div>
+      </div>
+
+      <div class="cart-section" id="cod">
+        <div class="subtitle">Cart & COD Order</div>
+
+        <label style="font-size:12px;">Quantity</label><br/>
+        <input id="qty-input" type="number" min="1" value="1" class="input-qty" />
+
+        <div class="cart-items" id="cart-items">
+          <!-- Cart line items will appear here -->
+          <div style="font-size:12px; opacity:0.8;">Your selected pack will appear here after you add to cart.</div>
+        </div>
+
+        <div class="cart-summary">
+          <div>
+            <strong>Total:</strong>
+            <span id="cart-total">₹0</span>
+          </div>
+          <button class="btn btn-primary" id="btn-whatsapp">
+            COD order on WhatsApp
+          </button>
+        </div>
+
+        <p class="section-note">
+          You will be redirected to WhatsApp with pre-filled order details.  
+          Please share your <strong>name, address, city & pincode, phone</strong> in the chat to confirm COD.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- INFO SECTION: DESCRIPTION + INGREDIENTS / HOW TO USE -->
-  <section class="info-grid">
-    <article class="info-card">
-      <h3>Product Description</h3>
-      <p>
-        minié Mini Cream is your everyday face cream, created for the girl who
-        loves simplicity but still wants visible results. The texture is soft,
-        cushiony and quick-absorbing – it melts into your skin, leaving a
-        soft-matte finish that feels like bare skin, not a heavy layer of
-        product.
+  <!-- Brand story -->
+  <section id="story">
+    <h3>Brand Story</h3>
+    <div class="story">
+      <p><strong>minié was created for the girl who loves simplicity but wants results.</strong></p>
+      <p style="margin-top:6px;">
+        Inspired by soft pastels, gentle textures, and clean beauty, minié delivers hydration, 
+        glow, and softness in every drop.
       </p>
-      <br>
-      <p>
-        Use it as your one-and-done daily moisturiser, or as a perfect base
-        under sunscreen and makeup. Fewer steps, more glow.
-      </p>
-      <br>
-      <h3 id="ingredients">Key Ingredients (≤ 10)</h3>
-      <div class="ingredients-grid">
-        <div class="ingredient-pill">Water</div>
-        <div class="ingredient-pill">Glycerin</div>
-        <div class="ingredient-pill">Rice Water</div>
-        <div class="ingredient-pill">Rose Water</div>
-        <div class="ingredient-pill">Aloe Vera</div>
-        <div class="ingredient-pill">Tocopheryl Acetate (Vitamin E)</div>
-        <div class="ingredient-pill">Niacinamide</div>
-        <div class="ingredient-pill">Panthenol (Pro-Vitamin B5)</div>
-        <div class="ingredient-pill">Allantoin</div>
-        <div class="ingredient-pill">Hyaluronic Acid</div>
-      </div>
 
-      <br>
-      <h3>How to use</h3>
+      <p style="margin-top:10px;">
+        We believe skincare should feel comforting — not complicated.
+      </p>
+
+      <p style="margin-top:6px;">Every minié product is designed to be:</p>
       <ul>
-        <li>Cleanse your face and gently pat dry.</li>
-        <li>Take a pea-sized amount of minié Mini Cream.</li>
-        <li>Dot on cheeks, forehead and chin, then massage evenly.</li>
-        <li>Use morning and night. Follow with sunscreen in the daytime.</li>
+        <li><strong>Minimal</strong> — fewer steps, more glow</li>
+        <li><strong>Gentle</strong> — clean, skin-loving ingredients</li>
+        <li><strong>Beautiful</strong> — aesthetic packaging you’ll love to use</li>
       </ul>
-    </article>
 
-    <article class="info-card">
-      <h3>Brand Story</h3>
-      <p class="brand-tagline">
-        minié was created for the girl who loves simplicity but wants results.
-      </p>
-      <p>
-        Inspired by soft pastels, gentle textures and clean beauty, minié
-        delivers hydration, glow and softness in every drop. We believe skincare
-        should feel comforting — not complicated.
-      </p>
-      <br>
-      <p>Every minié product is designed to be:</p>
-      <ul>
-        <li><strong>Minimal</strong> — fewer steps, more glow.</li>
-        <li><strong>Gentle</strong> — clean, skin-loving ingredients.</li>
-        <li><strong>Beautiful</strong> — aesthetic packaging you’ll love to use.</li>
-      </ul>
-      <br>
-      <p><strong>minié — for the soft, glowing you.</strong></p>
-    </article>
-  </section>
+      <p style="margin-top:10px;"><strong>minié — for the soft, glowing you.</strong></p>
 
-  <!-- REVIEWS -->
-  <section id="reviews" class="reviews-card">
-    <div class="reviews-header">
-      <h3>Customer Reviews & Ratings</h3>
-      <div class="review-pill">4.8★ · Loved by Gen-Z</div>
-    </div>
-    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.6rem;">
-      Tap on the stars above to rate your experience with minié Mini Cream.
-    </p>
-
-    <div class="fake-review">
-      “Instantly became my everyday cream. I use it under sunscreen and makeup.
-      No pilling, no greasiness – just soft, comfortable skin.”
-      <br>
-      <strong>– Mansi, 24</strong>
-    </div>
-    <div class="fake-review">
-      “Texture is so cute and light. Feels like nothing on the face but gives a
-      nice glow. My new favourite tube on the shelf.”
-      <br>
-      <strong>– Riya, 20</strong>
+      <div class="pill-list" style="margin-top:12px;">
+        <span class="pill">Soft. Simple. Beautiful like you.</span>
+        <span class="pill">For the girl I’ll never forget.</span>
+      </div>
     </div>
   </section>
 
-  <!-- BRAND + CONTACT / HELP -->
-  <section class="brand-card">
-    <h3>minié Promise</h3>
-    <p>
-      Made in India with love and intention. Each batch of minié Mini Cream is
-      manufactured in a GMP-certified facility and dermatologically tested for
-      safety.
-    </p>
-    <div class="brand-list">
-      <span class="brand-badge">Made in India</span>
-      <span class="brand-badge">Dermatologically tested</span>
-      <span class="brand-badge">Cruelty-free</span>
-      <span class="brand-badge">Gen-Z focused</span>
-    </div>
-
-    <div id="contact" class="contact-grid">
-      <article class="contact-card">
-        <h3>Let’s talk about your skin.</h3>
-        <p>
-          Not sure if minié is right for you? Want to stock it in your store or
-          gift it to someone special? Send us a message and we’ll get back
-          within 24 hours.
+  <!-- Ingredients & Manufacturing -->
+  <section id="ingredients">
+    <h3>Ingredients & Key Actives</h3>
+    <div class="two-col">
+      <div class="ingredients-card">
+        <p><strong>Hero Ingredients</strong></p>
+        <ul>
+          <li>Rice water – helps brighten and even out skin tone</li>
+          <li>Aloe vera – soothes & calms sensitive skin</li>
+          <li>Rose water – refreshes and softens</li>
+          <li>Vitamin-E – antioxidant care & barrier support</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>Full base blend:</strong><br/>
+          Purified Water, Glycerin, Rice Water, Rose Water, Aloe Vera,
+          Tocopheryl Acetate IP (Vitamin E), skin-safe emulsifiers & preservatives.
         </p>
-
-        <form class="contact-form" onsubmit="handleContact(event)">
-          <div class="field">
-            <label for="cname">Name</label>
-            <input id="cname" required placeholder="Your name" />
-          </div>
-          <div class="field">
-            <label for="ccontact">Email / Phone</label>
-            <input id="ccontact" required placeholder="How can we reach you?" />
-          </div>
-          <div class="field">
-            <label for="cmsg">Message</label>
-            <textarea id="cmsg" required placeholder="Tell us about your skin or your query..."></textarea>
-          </div>
-          <button type="submit" class="contact-submit">Send message on WhatsApp</button>
-        </form>
-
-        <div class="contact-meta">
-          Or email us at
-          <strong><a href="mailto:hello@minieskin.com">hello@minieskin.com</a></strong>
-        </div>
-      </article>
-
-      <article class="contact-card">
-        <h3>Order support</h3>
-        <p>
-          For order status, delivery updates, or payment help, reach us on
-          WhatsApp. Share your name and city – we’ll guide you with the next steps.
+        <p class="section-note">
+          Dermatologically tested. Suitable for normal to combination skin.  
+          Patch test recommended for very sensitive skin.
         </p>
-        <button class="contact-submit" onclick="buyOnWhatsapp()">
-          Chat on WhatsApp
-        </button>
-        <p class="contact-meta" style="margin-top:0.7rem;">
-          WhatsApp: <strong>+91 85160 98911</strong><br>
-          Timing: 10 AM – 7 PM (Mon – Sat)
+      </div>
+
+      <div id="manufacturing" class="manufacturing-card">
+        <p class="subtitle">Manufacturing Details</p>
+        <p><strong>Brand:</strong> minié – Mini Cream (Face Cream)</p>
+        <p><strong>Manufactured by:</strong><br/>
+          Jain Group, 563/17 Meghdoot Nagar, Indore,452010,(M.P)
         </p>
-      </article>
+        <p><strong>Country of Origin:</strong> India</p>
+        <p><strong>Net quantity options:</strong> 50 g / 100 g</p>
+        <p><strong>Tagline on pack:</strong> “Soft. Simple. Beautiful like you.”</p>
+      </div>
     </div>
   </section>
-</main>
 
-<footer>
-  © minié · Soft. Simple. Beautiful like you. · Built with love, one product at a time.
-</footer>
+  <footer>
+    © minié. All rights reserved. | Made with love for the girl I’ll never forget.
+  </footer>
+</div>
 
 <script>
-  // IMAGE GALLERY
-  const mainImage = document.getElementById("mainImage");
-  document.querySelectorAll(".gallery-thumb").forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      document
-        .querySelectorAll(".gallery-thumb")
-        .forEach((t) => t.classList.remove("active"));
-      thumb.classList.add("active");
-      const src = thumb.getAttribute("data-img");
-      mainImage.src = src;
+  // Product variants
+  const variants = {
+    "jar-50": {
+      id: "jar-50",
+      label: "Jar • 50 g",
+      size: "50 g",
+      type: "Jar",
+      price: 349,
+      image: "images/minie-jar-50.png",
+    },
+    "jar-100": {
+      id: "jar-100",
+      label: "Jar • 100 g",
+      size: "100 g",
+      type: "Jar",
+      price: 549,
+      image: "images/minie-jar-100.png",
+    },
+    "tube-100": {
+      id: "tube-100",
+      label: "Tube • 100 g",
+      size: "100 g",
+      type: "Tube",
+      price: 599,
+      image: "images/minie-tube-100.png",
+    },
+  };
+
+  let selectedVariantId = "jar-50";
+  let cart = [];
+
+  const variantButtons = document.querySelectorAll(".variant-option");
+  const variantImage = document.getElementById("variant-image");
+  const priceEl = document.getElementById("variant-price");
+  const packEl = document.getElementById("variant-pack");
+  const sizeEl = document.getElementById("variant-size");
+  const heroPrice = document.getElementById("hero-price");
+  const qtyInput = document.getElementById("qty-input");
+  const cartItemsEl = document.getElementById("cart-items");
+  const cartTotalEl = document.getElementById("cart-total");
+  const btnAddMain = document.getElementById("btn-add-main");
+  const btnWhatsapp = document.getElementById("btn-whatsapp");
+
+  function updateVariantUI() {
+    const v = variants[selectedVariantId];
+    variantImage.src = v.image;
+    priceEl.textContent = "₹" + v.price;
+    packEl.textContent = v.type;
+    sizeEl.textContent = v.size;
+    heroPrice.innerHTML = "₹" + v.price + ' <span>' + v.type + " • " + v.size + "</span>";
+  }
+
+  variantButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      variantButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedVariantId = btn.getAttribute("data-id");
+      updateVariantUI();
     });
   });
 
-  // SIZE SELECTOR & PRICE SWITCH
-  const sizeChips = document.querySelectorAll(".size-chip");
-const priceMain = document.getElementById("priceMain");
-const priceCut = document.getElementById("priceCut");
-const priceOff = document.getElementById("priceOff");
-const mobilePriceMain = document.getElementById("mobilePriceMain");
-const mobilePriceSub = document.getElementById("mobilePriceSub");
+  function addToCart() {
+    const quantity = Math.max(1, Number(qtyInput.value) || 1);
+    const v = variants[selectedVariantId];
 
-sizeChips.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    sizeChips.forEach((c) => c.classList.remove("active"));
-    chip.classList.add("active");
-
-    const price = Number(chip.dataset.price);
-    const mrp = Number(chip.dataset.mrp);
-    const label = chip.textContent.trim();
-
-    priceMain.textContent = "₹" + price;
-    priceCut.textContent = "₹" + mrp;
-    const off = Math.round(((mrp - price) / mrp) * 100);
-    priceOff.textContent = off + "% off";
-
-    if (mobilePriceMain && mobilePriceSub) {
-      mobilePriceMain.textContent = "₹" + price;
-      mobilePriceSub.textContent = label;
+    // Since it's one product, keep a single line per variant
+    const existing = cart.find(item => item.id === v.id);
+    if (existing) {
+      existing.qty += quantity;
+    } else {
+      cart.push({
+        id: v.id,
+        name: "minié Mini Cream – " + v.label,
+        qty: quantity,
+        price: v.price,
+      });
     }
-  });
+    renderCart();
+  }
 
-  // RATING CLICK
-  const ratingStars = document.getElementById("ratingStars");
-  const ratingScore = document.getElementById("ratingScore");
-  let currentRating = 5;
+  function renderCart() {
+    if (cart.length === 0) {
+      cartItemsEl.innerHTML = '<div style="font-size:12px; opacity:0.8;">Your selected pack will appear here after you add to cart.</div>';
+      cartTotalEl.textContent = "₹0";
+      return;
+    }
 
-  function updateStars(rating) {
-    ratingStars.querySelectorAll("span").forEach((star) => {
-      const s = Number(star.dataset.star);
-      star.classList.toggle("active", s <= rating);
+    cartItemsEl.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+      const lineTotal = item.qty * item.price;
+      total += lineTotal;
+
+      const row = document.createElement("div");
+      row.className = "cart-item-row";
+      row.innerHTML = `
+        <span>${item.name} × ${item.qty}</span>
+        <span>₹${lineTotal}</span>
+      `;
+      cartItemsEl.appendChild(row);
     });
+
+    cartTotalEl.textContent = "₹" + total;
   }
-  updateStars(currentRating);
 
-  ratingStars.addEventListener("click", (e) => {
-    if (!e.target.dataset.star) return;
-    currentRating = Number(e.target.dataset.star);
-    updateStars(currentRating);
-    ratingScore.textContent = currentRating.toFixed(1).replace(".0", "");
-    alert("Thank you! You rated minié " + currentRating + "★");
-  });
+  function openWhatsAppOrder() {
+    if (cart.length === 0) {
+      alert("Please add at least one pack to cart before placing a COD order.");
+      return;
+    }
 
-  // BUY / WHATSAPP
-  function buyOnWhatsapp() {
-    const activeSize = document.querySelector(".size-chip.active").innerText.trim();
-    const text =
-      "Hi, I want to order minié Mini Cream (" +
-      activeSize +
-      "). Please share payment & delivery details.";
-    const url =
-      "https://wa.me/918516089811?text=" + encodeURIComponent(text);
+    let message = "New COD order from minié website:%0A%0A";
+    cart.forEach(item => {
+      message += `${item.name} × ${item.qty} = ₹${item.qty * item.price}%0A`;
+    });
+
+    const totalText = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
+    message += `%0ATotal amount: ₹${totalText}%0A`;
+    message += "%0APayment mode: Cash on Delivery (COD)%0A";
+    message += "%0AName:%0AAddress:%0ACity & Pincode:%0APhone:%0A";
+
+    // Use your WhatsApp business / personal number here (without +)
+    const phone = "918516098911"; // +91 8516098911
+    const url = `https://wa.me/${phone}?text=${message}`;
     window.open(url, "_blank");
   }
 
-  function fakeAddToCart() {
-    alert("minié Mini Cream added to your cart (demo). Complete your order on WhatsApp!");
-  }
+  btnAddMain.addEventListener("click", addToCart);
+  btnWhatsapp.addEventListener("click", openWhatsAppOrder);
 
-  // CONTACT FORM -> WHATSAPP
-  function handleContact(e) {
-    e.preventDefault();
-    const name = document.getElementById("cname").value;
-    const contact = document.getElementById("ccontact").value;
-    const msg = document.getElementById("cmsg").value;
-    const text =
-      "Contact form enquiry%nName: " +
-      name +
-      "%nContact: " +
-      contact +
-      "%nMessage: " +
-      msg;
-    const url =
-      "https://wa.me/918516089811?text=" + encodeURIComponent(text);
-    window.open(url, "_blank");
-    e.target.reset();
-  }
+  // Initialize
+  updateVariantUI();
+  renderCart();
 </script>
 </body>
 </html>
