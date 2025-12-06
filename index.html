@@ -1249,30 +1249,48 @@
           </div>
 
           <div class="products-grid single-product">
-            <article class="product-card">
-              <span class="product-tag">Face cream</span>
+  <article class="product-card">
+    <span class="product-tag">Face cream</span>
 
-              <div class="product-images">
-       <img src="minie-jar.jpg" alt="minie Mini Cream Jar" class="product-photo" />
-         <img src="minie-tube.jpg.png" alt="minie Mini Cream Tube" class="product-photo" />
-          </div>
+    <!-- IMAGES SIDE BY SIDE -->
+    <div class="product-images" style="display:flex; gap:1rem; justify-content:center; align-items:flex-end; flex-wrap:nowrap;">
+      <img src="minie-jar.jpg"
+           alt="minie Mini Cream Jar"
+           class="product-photo"
+           style="max-width:220px; height:auto;" />
+      <img src="minie-tube.jpg.png"
+           alt="minie Mini Cream Tube"
+           class="product-photo"
+           style="max-width:220px; height:auto;" />
+    </div>
 
+    <h3 class="product-name">minie Mini Cream</h3>
+    <p class="product-sub">
+      Hydrates • Brightens • Softens — gentle daily face cream for normal skin.
+    </p>
 
-              <h3 class="product-name">minie Mini Cream</h3>
-              <p class="product-sub">
-                Hydrates • Brightens • Softens — gentle daily face cream for normal skin.
-              </p>
+    <div class="sizes">
+      <div class="size-row">
+        <span class="size-label">50 g</span>
+        <span class="product-price">₹350</span>
+      </div>
+      <div class="size-row">
+        <span class="size-label">100 g</span>
+        <span class="product-price">₹500</span>
+      </div>
+    </div>
 
-              <div class="sizes">
-                <div class="size-row">
-                  <span class="size-label">50 g</span>
-                  <span class="product-price">₹350</span>
-                </div>
-                <div class="size-row">
-                  <span class="size-label">100 g</span>
-                  <span class="product-price">₹500</span>
-                </div>
-              </div>
+    <div class="product-footer">
+      <div style="font-size:0.8rem; color:var(--muted);">
+        Order now on WhatsApp – COD Available.
+      </div>
+      <button class="product-btn" onclick="window.open('https://wa.me/918516098911','_blank')">
+        Order on WhatsApp
+      </button>
+    </div>
+  </article>
+</div>
+
 
               <div class="product-footer">
                 <div style="font-size:0.8rem; color:var(--muted);">
@@ -1467,6 +1485,7 @@
   </script>
 </body>
 </html>
+
 
 
 
